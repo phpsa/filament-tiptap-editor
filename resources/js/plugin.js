@@ -1,6 +1,7 @@
 import {Editor} from "@tiptap/core";
 import Blockquote from "@tiptap/extension-blockquote";
 import Bold from "@tiptap/extension-bold";
+import BubbleMenu from "@tiptap/extension-bubble-menu";
 import BulletList from "@tiptap/extension-bullet-list";
 import Code from "@tiptap/extension-code";
 import {Color} from "@tiptap/extension-color";
@@ -117,7 +118,12 @@ document.addEventListener("alpine:init", () => {
                 return tool.id;
             })
 
-            let exts = [Document, Text, CustomParagraph, Dropcursor, Gapcursor, HardBreak, History];
+            let exts = [Document, Text, CustomParagraph, Dropcursor, Gapcursor, HardBreak, History, BubbleMenu.configure({
+                element: document.querySelector('#link-bubble-menu'),
+                shouldShow: ({editor}) => {
+                    return editor.isActive('link');
+                }
+            })];
 
             if (tools.length) {
 

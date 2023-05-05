@@ -36,6 +36,12 @@
             @if (! $isDisabled)
             <button type="button" x-on:click="editor().chain().focus()" class="z-20 rounded sr-only focus:not-sr-only focus:absolute focus:py-1 focus:px-3 focus:bg-white focus:text-gray-900">Skip toolbar</button>
 
+            <div id="link-bubble-menu" class="flex items-center">
+                <x-dynamic-component component="filament-tiptap-editor::tools.bold" :state-path="$statePath" />
+                <x-dynamic-component component="filament-tiptap-editor::tools.italic" :state-path="$statePath" />
+                <x-dynamic-component component="filament-tiptap-editor::tools.strike" :state-path="$statePath" />
+            </div>
+
             <div class="tiptap-toolbar border-b border-gray-200 bg-gray-50 divide-x divide-gray-300 rounded-t-md z-[1] relative flex flex-col md:flex-row dark:border-gray-900 dark:bg-gray-900 dark:divide-gray-700">
 
                 <div class="flex flex-wrap items-center flex-1 gap-1 p-1 tiptap-toolbar-left">
